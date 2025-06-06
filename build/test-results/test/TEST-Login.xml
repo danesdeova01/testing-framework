@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Login" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-06-06T04:54:07.675Z" hostname="LAPTOP-05EG2TE6" time="4.238">
+  <properties/>
+  <testcase name="Login with valid data" classname="Login" time="0.907"/>
+  <testcase name="Login with invalid credentials #1" classname="Login" time="0.557"/>
+  <testcase name="Login with invalid credentials #2" classname="Login" time="0.484"/>
+  <testcase name="Login with invalid credentials #3" classname="Login" time="0.468"/>
+  <testcase name="Login with boundary value username and password #1" classname="Login" time="0.484"/>
+  <testcase name="Login with boundary value username and password #2" classname="Login" time="0.507"/>
+  <testcase name="Login with boundary value username and password #3" classname="Login" time="0.407"/>
+  <testcase name="Login with boundary value username and password #4" classname="Login" time="0.421"/>
+  <system-out><![CDATA[
+@login @valid-login
+Scenario: Login with valid data               ?[90m# src/test/resources/features/login.feature:5?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                 ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m"standard_user"?[0m?[32m as username?[0m ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m"secret_sauce"?[0m?[32m as password?[0m   ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                 ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+  ?[32mThen ?[0m?[32muser will redirect to home page?[0m        ?[90m# stepDefinitions.LoginStepDef.userWillRedirectToHomePage()?[0m
+
+@login @invalid-login
+Scenario Outline: Login with invalid credentials                        ?[90m# src/test/resources/features/login.feature:22?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m""?[0m?[32m as username?[0m                                        ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m"secret_sauce"?[0m?[32m as password?[0m                             ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Username is required
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Username is required"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+
+@login @invalid-login
+Scenario Outline: Login with invalid credentials                        ?[90m# src/test/resources/features/login.feature:23?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m"standard_user"?[0m?[32m as username?[0m                           ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m""?[0m?[32m as password?[0m                                         ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Password is required
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Password is required"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+
+@login @invalid-login
+Scenario Outline: Login with invalid credentials                        ?[90m# src/test/resources/features/login.feature:24?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m""?[0m?[32m as username?[0m                                        ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m""?[0m?[32m as password?[0m                                         ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Username is required
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Username is required"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+
+@login @boundary-login
+Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:36?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m"a"?[0m?[32m as username?[0m                                                                              ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m"secret_sauce"?[0m?[32m as password?[0m                                                                    ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Username and password do not match any user in this service
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Username and password do not match any user in this service"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+
+@login @boundary-login
+Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:37?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m"aaaaaaaaaaaaaaaaaaaaaaaaaaaa"?[0m?[32m as username?[0m                                                   ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m"secret_sauce"?[0m?[32m as password?[0m                                                                    ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Username and password do not match any user in this service
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Username and password do not match any user in this service"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+
+@login @boundary-login
+Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:38?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m"standard_user"?[0m?[32m as username?[0m                                                                  ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m"a"?[0m?[32m as password?[0m                                                                               ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Username and password do not match any user in this service
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Username and password do not match any user in this service"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+
+@login @boundary-login
+Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:39?[0m
+  ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
+  ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m"standard_user"?[0m?[32m as username?[0m                                                                  ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m"aaaaaaaaaaaaaa"?[0m?[32m as password?[0m                                                                  ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
+  ?[32mAnd ?[0m?[32muser click login button?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
+Actual error message: Epic sadface: Username and password do not match any user in this service
+  ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m"Epic sadface: Username and password do not match any user in this service"?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
