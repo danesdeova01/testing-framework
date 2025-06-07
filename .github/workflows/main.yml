@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: read
+  contents: write 
   pages: write
   id-token: write
 
@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Download repository
+      # Checkout repository
       - uses: actions/checkout@v4
 
-      # Setup Java
+      # Setup Java 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -32,27 +32,28 @@ jobs:
         with:
           chrome-version: stable
 
-      # Setup gradlew
-      - name: Setup gradlew
+      # Setup gradlew and build project
+      - name: Setup gradlew and Build
         run: |
-          chmod +x gradlew 
-          ./gradlew build 
+          chmod +x gradlew
+          ./gradlew build
 
-      - name: Run Test
+      # Run tests
+      - name: Run Tests
         run: ./gradlew clean test
 
+      # Archive test results (pastikan folder ini sesuai output test Anda)
       - name: Archive test results
         uses: actions/upload-artifact@v4.6.2
-        if: always() 
+        if: always()
         with:
           name: Cucumber Reports
-          path: report
+          path: build/reports
 
-          
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: reports
+          publish_dir: build/reports
