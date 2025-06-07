@@ -42,17 +42,17 @@ jobs:
         run: ./gradlew clean test
 
       - name: Archive test results
-        uses: actions/upload-artifact@v4.3.0
+        uses: actions/upload-artifact@v4.6.2
         if: always() 
         with:
-          name: cucumber reports
-          path: target/index.html 
+          name: Cucumber Reports
+          path: report
+
           
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
-          personal_token: ${{ secrets.PAT }}
-          publish_dir: target
-
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: reports
