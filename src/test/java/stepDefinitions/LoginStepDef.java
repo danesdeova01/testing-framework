@@ -44,7 +44,9 @@ public class LoginStepDef {
 
     @Then("user will redirect to home page")
     public void userWillRedirectToHomePage() {
-        Assert.assertTrue("Home page is not displayed", homePage.verifyPageIsDisplayed());
+        // Tunggu sampai elemen unik di home page muncul
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        Assert.assertTrue("Home page is not displayed", homePage.verifyPageIsDisplayed(wait));
     }
 
     @Then("user will see error message {string}")
