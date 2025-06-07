@@ -2,32 +2,52 @@ package pages;
 
 import org.openqa.selenium.By;
 import static helper.Utility.webDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 
 public class LoginPage {
 
-    By inputUsername = By.id("user-name" );
-    By inputPassword = By.id("password");
-    By buttonLogin = By.id("login-button");
+    private final By inputUsername = By.id("user-name");
+    private final By inputPassword = By.id("password");
+    private final By buttonLogin = By.id("login-button");
 
-    public void waitForLoginPage() {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+    private final WebDriverWait wait;
+
+    public LoginPage() {
+        // Inisialisasi WebDriverWait sekali untuk digunakan di seluruh method
+        this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+    }
+
+    public void waitForUsernameField() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(inputUsername));
     }
+
+    public void waitForPasswordField() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(inputPassword));
+    }
+
+    public void waitForLoginButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(buttonLogin));
+    }
+
     public void setInputUsername(String username){
-        waitForLoginPage();
-        webDriver.findElement(inputUsername).clear();
-        webDriver.findElement(inputUsername).sendKeys(username);
+        waitForUsernameField();
+        WebElement element = webDriver.findElement(inputUsername);
+        element.clear();
+        element.sendKeys(username);
     }
+
     public void setInputPassword(String password){
-        waitForLoginPage();
-        webDriver.findElement(inputPassword).clear();
-        webDriver.findElement(inputPassword).sendKeys(password);
+        waitForPasswordField();
+        WebElement element = webDriver.findElement(inputPassword);
+        element.clear();
+        element.sendKeys(password);
     }
+
     public void clickLoginButton(){
-        waitForLoginPage();
+        waitForLoginButton();
         webDriver.findElement(buttonLogin).click();
     }
 
@@ -40,8 +60,4 @@ public class LoginPage {
             return false;
         }
     }
-
-
 }
-
-
