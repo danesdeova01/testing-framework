@@ -1,17 +1,17 @@
 package stepDefinitions;
 
 import helper.Utility;
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 
 public class Hooks {
 
-    @BeforeAll
+    @Before
     public static void setDriver(){
-        Utility.startWebDriver();
+        Utility.setUp();
     }
 
-    @AfterAll
+    @After
     public static void quitDriver(){
         Utility.quitDriver();
     }
