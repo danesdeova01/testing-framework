@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">4.235s</div>
+<div class="counter">8.344s</div>
 <p>duration</p>
 </div>
 </td>
@@ -58,16 +58,19 @@
 </tr>
 </table>
 </div>
-<div class="tab-container">
+<div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#">Tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#">Standard output</a>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
-<div class="tab">
+<div id="tab0" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -79,52 +82,54 @@
 </thead>
 <tr>
 <td class="success">Login with boundary value username and password #1</td>
-<td class="success">0.484s</td>
+<td class="success">0.955s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with boundary value username and password #2</td>
-<td class="success">0.507s</td>
+<td class="success">0.955s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with boundary value username and password #3</td>
-<td class="success">0.407s</td>
+<td class="success">0.967s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with boundary value username and password #4</td>
-<td class="success">0.421s</td>
+<td class="success">0.956s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with invalid credentials #1</td>
-<td class="success">0.557s</td>
+<td class="success">0.982s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with invalid credentials #2</td>
-<td class="success">0.484s</td>
+<td class="success">0.982s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with invalid credentials #3</td>
-<td class="success">0.468s</td>
+<td class="success">0.912s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Login with valid data</td>
-<td class="success">0.907s</td>
+<td class="success">1.635s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>
 @login @valid-login
 Scenario: Login with valid data               ?[90m# src/test/resources/features/login.feature:5?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                 ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;standard_user&quot;?[0m?[32m as username?[0m ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;secret_sauce&quot;?[0m?[32m as password?[0m   ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -133,6 +138,8 @@ Scenario: Login with valid data               ?[90m# src/test/resources/features
 
 @login @invalid-login
 Scenario Outline: Login with invalid credentials                        ?[90m# src/test/resources/features/login.feature:22?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;&quot;?[0m?[32m as username?[0m                                        ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;secret_sauce&quot;?[0m?[32m as password?[0m                             ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -142,6 +149,8 @@ Actual error message: Epic sadface: Username is required
 
 @login @invalid-login
 Scenario Outline: Login with invalid credentials                        ?[90m# src/test/resources/features/login.feature:23?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;standard_user&quot;?[0m?[32m as username?[0m                           ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;&quot;?[0m?[32m as password?[0m                                         ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -151,6 +160,8 @@ Actual error message: Epic sadface: Password is required
 
 @login @invalid-login
 Scenario Outline: Login with invalid credentials                        ?[90m# src/test/resources/features/login.feature:24?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                           ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;&quot;?[0m?[32m as username?[0m                                        ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;&quot;?[0m?[32m as password?[0m                                         ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -160,6 +171,8 @@ Actual error message: Epic sadface: Username is required
 
 @login @boundary-login
 Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:36?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;a&quot;?[0m?[32m as username?[0m                                                                              ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;secret_sauce&quot;?[0m?[32m as password?[0m                                                                    ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -169,6 +182,8 @@ Actual error message: Epic sadface: Username and password do not match any user 
 
 @login @boundary-login
 Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:37?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;?[0m?[32m as username?[0m                                                   ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;secret_sauce&quot;?[0m?[32m as password?[0m                                                                    ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -178,6 +193,8 @@ Actual error message: Epic sadface: Username and password do not match any user 
 
 @login @boundary-login
 Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:38?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;standard_user&quot;?[0m?[32m as username?[0m                                                                  ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;a&quot;?[0m?[32m as password?[0m                                                                               ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
@@ -187,12 +204,23 @@ Actual error message: Epic sadface: Username and password do not match any user 
 
 @login @boundary-login
 Scenario Outline: Login with boundary value username and password                                              ?[90m# src/test/resources/features/login.feature:39?[0m
+Intializing WebDriver...
+WebDriver initialized successfully
   ?[32mGiven ?[0m?[32muser on the home page?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userOnTheHomePage()?[0m
   ?[32mWhen ?[0m?[32muser input ?[0m?[32m?[1m&quot;standard_user&quot;?[0m?[32m as username?[0m                                                                  ?[90m# stepDefinitions.LoginStepDef.userInputUsername(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser input ?[0m?[32m?[1m&quot;aaaaaaaaaaaaaa&quot;?[0m?[32m as password?[0m                                                                  ?[90m# stepDefinitions.LoginStepDef.userInputPassword(java.lang.String)?[0m
   ?[32mAnd ?[0m?[32muser click login button?[0m                                                                                  ?[90m# stepDefinitions.LoginStepDef.userClickLoginButton()?[0m
 Actual error message: Epic sadface: Username and password do not match any user in this service
   ?[32mThen ?[0m?[32muser will see error message ?[0m?[32m?[1m&quot;Epic sadface: Username and password do not match any user in this service&quot;?[0m ?[90m# stepDefinitions.LoginStepDef.userWillSeeErrorMessage(java.lang.String)?[0m
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
 </pre>
 </span>
 </div>
@@ -204,7 +232,7 @@ Actual error message: Epic sadface: Username and password do not match any user 
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.14.1</a> at Jun 6, 2025, 11:54:12 AM</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at Jun 9, 2025, 1:21:00 AM</p>
 </div>
 </div>
 </body>
